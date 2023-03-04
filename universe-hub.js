@@ -66,7 +66,7 @@ const showSingleCardData=(singleCard)=>{
    </div>
   </div>
 </div>
-<div class="card  border  p-3 mx-auto w-100">
+<div class="card  border  p-3 mx-auto w-100 position-relative">
   <div class="card-body">
   <img src="${singleCard.image_link[0]
   }" class="img-fluid rounded">
@@ -76,6 +76,9 @@ const showSingleCardData=(singleCard)=>{
     
   </div>
 </div>
+<button  class="btn btn-danger text-light px-5 py-1 rounded position-absolute top-0 end-0">${singleCard.accuracy.score*100} % accuracy
+
+</button>
     </div>
     
     `;
