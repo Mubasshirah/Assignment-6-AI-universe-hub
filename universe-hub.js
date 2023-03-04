@@ -22,7 +22,8 @@ const showData = (cards) => {
               </ol>
               <hr>
                       <h4>${card.name}</h4>
-                      <p class="d-flex justify-content-between"><span><i class="fa-solid fa-calendar-check px-2 text-secondary"></i>${card.published_in}</span>    <button class="border border-0 rounded-circle"><i class="fa-solid fa-arrow-right text-danger "></i></button></p>
+                      <p class="d-flex justify-content-between"><span><i class="fa-solid fa-calendar-check px-2 text-secondary"></i>${card.published_in}</span>    <button onclick="loadSingleCardData('${card.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="border border-0 rounded-circle"><i class="fa-solid fa-arrow-right text-danger "></i></button></p>
+                      
 
                     </div>
                   </div>
@@ -30,4 +31,45 @@ const showData = (cards) => {
         cardContainerSection.appendChild(newDiv);
     }
 }
+const loadSingleCardData=(id)=>{
+    const url=`https://openapi.programming-hero.com/api/ai/tool/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>showSingleCardData(data.data))
+}
+const showSingleCardData=(singleCard)=>{
+    console.log(singleCard);
+    const modalContainerSection=document.getElementById('modalContainer');
+    const newModalDiv=document.createElement('div');
+    newModalDiv.classList.add('col');
+    newModalDiv.innerHTML=`
+    <div class="card  mx-auto" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's conte</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+    
+    `;
+    modalContainerSection.appendChild(newModalDiv);
+    const newModalDiv1=document.createElement('div');
+    newModalDiv1.classList.add('col');
+    newModalDiv1.innerHTML=`
+    <div class="card mx-auto" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+    
+    `;
+    modalContainerSection.appendChild(newModalDiv1);
+}
+
 loadData();
