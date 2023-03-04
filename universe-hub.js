@@ -5,7 +5,7 @@ const loadData = () => {
 }
 const showData = (cards) => {
 
-
+     cards=cards.slice(0,6);
     const cardContainerSection = document.getElementById('cardsContainer');
     for (const card of cards) {
         console.log(card)
@@ -20,9 +20,10 @@ const showData = (cards) => {
                 ${card.features.map(feature=>
                     `<li class="fs-6">${feature}</li>`).join('')}
               </ol>
-                      
+              <hr>
+                      <h4>${card.name}</h4>
+                      <p class="d-flex justify-content-between"><span><i class="fa-solid fa-calendar-check px-2 text-secondary"></i>${card.published_in}</span>    <button class="border border-0 rounded-circle"><i class="fa-solid fa-arrow-right text-danger "></i></button></p>
 
-                      <hr>
                     </div>
                   </div>
      `;
