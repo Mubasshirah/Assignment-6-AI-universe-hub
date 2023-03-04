@@ -50,17 +50,18 @@ const showSingleCardData=(singleCard)=>{
                 ${ singleCard.pricing.map(singlePricing=>`<div class="mx-1 p-2 rounded w-25 bg-white"><h6 class=" text-success d-inline-block ">${singlePricing.price} </h6><br><h6 class=" text-danger  d-inline-block ">
                 ${singlePricing.plan}</h6></div>`).join('')}
     </div>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's conte</p>
+   
    <div class="d-flex justify-content-around">
    <div> <h5>Features</h5>
-   <ul>${Object.entries(singleCard.features).forEach(entry=>{
-    // `<li>${entry[1]}</li>`
-    console.log(entry)
-    // console.log(entry[1])
-    // console.log(entry[1].feature_name)
-   })}</ul>
+   
    </div>
-   <div><h5>Integrations<h5></div>
+   <div><h5>Integrations</h5>
+   <ul>
+   ${singleCard.integrations? singleCard.integrations.map(singleIntegration=>
+    
+    `<li>${singleIntegration}</li>`).join('') : `<p>no data found</p>`}   
+   </ul>
+   </div>
    </div>
   </div>
 </div>
