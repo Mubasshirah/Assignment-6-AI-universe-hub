@@ -5,7 +5,7 @@ const loadData = () => {
 }
 const showData = (cards) => {
 
-     cards=cards.slice(0,6);
+     cards=cards.slice(0,12);
     const cardContainerSection = document.getElementById('cardsContainer');
     for (const card of cards) {
         
@@ -29,6 +29,7 @@ const showData = (cards) => {
                   </div>
      `;
         cardContainerSection.appendChild(newDiv);
+        togglespinner(false);
     }
 }
 const loadSingleCardData=(id)=>{
@@ -65,16 +66,14 @@ const showSingleCardData=(singleCard)=>{
    </div>
   </div>
 </div>
-<div class="card bg-danger-subtle border border-danger-subtle p-3 mx-auto w-100">
+<div class="card  border  p-3 mx-auto w-100">
   <div class="card-body">
-    <h5 class="card-title">${singleCard.description}</h5>
-    <div class="d-flex">
-                ${singleCard.pricing? singleCard.pricing.map(singlePricing=>`<h6 class="bg-white rounded text-warning  p-3 me-5">${singlePricing.price} <br>
-                ${singlePricing.plan}</h6>`).join(''):'free of cost'}
-            </div>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's conte</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+  <img src="${singleCard.image_link[0]
+  }" class="img-fluid rounded">
+    
+    <p class="card-text fw-bold">${singleCard.input_output_examples.map(data=>`${data.input}`)}</p>
+    <p class="card-text">${singleCard.input_output_examples.map(data=>`${data.output}`)}</p>
+    
   </div>
 </div>
     </div>
@@ -83,5 +82,19 @@ const showSingleCardData=(singleCard)=>{
     
     
 }
+const togglespinner=(isLoading)=>{
+    const toggleField=document.getElementById('toggleSpinner');
+    if(isLoading){
+        toggleField.classList.remove('d-none');
+    
+    }
+    else{
+        toggleField.classList.add('d-none');
+    }
+}
+document.getElementById('showAllBtn').addEventListener('click',function(){
+    togglespinner(true);
+    loadData()
+})
 
 loadData();
