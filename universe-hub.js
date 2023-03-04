@@ -5,8 +5,10 @@ const loadData = () => {
 }
 const showData = (cards) => {
 
-     cards=cards.slice(0,12);
+    
     const cardContainerSection = document.getElementById('cardsContainer');
+    cards=cards.slice(0,6);
+   
     for (const card of cards) {
         
         const newDiv = document.createElement('div');
@@ -29,7 +31,7 @@ const showData = (cards) => {
                   </div>
      `;
         cardContainerSection.appendChild(newDiv);
-        togglespinner(false);
+    
     }
 }
 const loadSingleCardData=(id)=>{
@@ -43,7 +45,7 @@ const showSingleCardData=(singleCard)=>{
     const modalContainerSection=document.getElementById('modalContainer');
     
     modalContainerSection.innerHTML=`
-    <div class="d-flex gap-4">
+    <div class="d-flex flex-sm-column gap-4">
     <div class="card bg-danger-subtle border border-danger-subtle p-3 mx-auto w-100">
   <div class="card-body">
     <h5 class="card-title">${singleCard.description}</h5>
@@ -85,19 +87,8 @@ const showSingleCardData=(singleCard)=>{
     
     
 }
-const togglespinner=(isLoading)=>{
-    const toggleField=document.getElementById('toggleSpinner');
-    if(isLoading){
-        toggleField.classList.remove('d-none');
-    
-    }
-    else{
-        toggleField.classList.add('d-none');
-    }
-}
-document.getElementById('showAllBtn').addEventListener('click',function(){
-    togglespinner(true);
-    loadData()
-})
+
+    // inputSearch.value='';
+
 
 loadData();
