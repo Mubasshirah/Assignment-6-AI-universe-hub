@@ -40,12 +40,11 @@ const loadSingleCardData=(id)=>{
 const showSingleCardData=(singleCard)=>{
     console.log(singleCard);
     const modalContainerSection=document.getElementById('modalContainer');
-    const newModalDiv=document.createElement('div');
-    newModalDiv.classList.add('col');
-    newModalDiv.innerHTML=`
-    <div class="card  mx-auto" style="width: 18rem;">
+    
+    modalContainerSection.innerHTML=`
+    <div class="card bg-danger-subtle p-3 mx-auto w-100">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">${singleCard.description}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's conte</p>
     <a href="#" class="card-link">Card link</a>
@@ -54,22 +53,8 @@ const showSingleCardData=(singleCard)=>{
 </div>
     
     `;
-    modalContainerSection.appendChild(newModalDiv);
-    const newModalDiv1=document.createElement('div');
-    newModalDiv1.classList.add('col');
-    newModalDiv1.innerHTML=`
-    <div class="card mx-auto" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
     
-    `;
-    modalContainerSection.appendChild(newModalDiv1);
+    
 }
 
 loadData();
