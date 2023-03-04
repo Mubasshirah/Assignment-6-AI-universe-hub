@@ -45,7 +45,7 @@ const showSingleCardData=(singleCard)=>{
     const modalContainerSection=document.getElementById('modalContainer');
     
     modalContainerSection.innerHTML=`
-    <div class="d-flex flex-sm-column gap-4">
+    <div class="d-flex flex-sm-column flex-md-row flex-lg-row gap-4">
     <div class="card bg-danger-subtle border border-danger-subtle p-3 mx-auto w-100">
   <div class="card-body">
     <h5 class="card-title">${singleCard.description}</h5>
