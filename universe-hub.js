@@ -52,7 +52,7 @@ const showSingleCardData=(singleCard)=>{
                 ${singlePricing.plan}</h6></div>`).join('')}
     </div>
    
-   <div class="d-flex justify-content-around">
+   <div class="d-flex justify-content-around mt-5">
    <div> <h5>Features</h5>
    
    </div>
